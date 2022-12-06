@@ -61,8 +61,8 @@ build CMakeFiles/Task_1.dir/iterator.cpp.obj: CXX_COMPILER__Task_1_Debug C$:/Use
   OBJECT_DIR = CMakeFiles\Task_1.dir
   OBJECT_FILE_DIR = CMakeFiles\Task_1.dir
 
-build CMakeFiles/Task_1.dir/XYVector.cpp.obj: CXX_COMPILER__Task_1_Debug C$:/Users/over-/CLionProjects/OOP-Assignment-3/Task$ 1/XYVector.cpp || cmake_object_order_depends_target_Task_1
-  DEP_FILE = CMakeFiles\Task_1.dir\XYVector.cpp.obj.d
+build CMakeFiles/Task_1.dir/MinaAyaVector.cpp.obj: CXX_COMPILER__Task_1_Debug C$:/Users/over-/CLionProjects/OOP-Assignment-3/Task$ 1/MinaAyaVector.cpp || cmake_object_order_depends_target_Task_1
+  DEP_FILE = CMakeFiles\Task_1.dir\MinaAyaVector.cpp.obj.d
   FLAGS = -g -std=gnu++20
   OBJECT_DIR = CMakeFiles\Task_1.dir
   OBJECT_FILE_DIR = CMakeFiles\Task_1.dir
@@ -75,7 +75,7 @@ build CMakeFiles/Task_1.dir/XYVector.cpp.obj: CXX_COMPILER__Task_1_Debug C$:/Use
 #############################################
 # Link the executable Task_1.exe
 
-build Task_1.exe: CXX_EXECUTABLE_LINKER__Task_1_Debug CMakeFiles/Task_1.dir/main.cpp.obj CMakeFiles/Task_1.dir/iterator.cpp.obj CMakeFiles/Task_1.dir/XYVector.cpp.obj
+build Task_1.exe: CXX_EXECUTABLE_LINKER__Task_1_Debug CMakeFiles/Task_1.dir/main.cpp.obj CMakeFiles/Task_1.dir/iterator.cpp.obj CMakeFiles/Task_1.dir/MinaAyaVector.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Task_1.dir
