@@ -153,6 +153,8 @@ public:
         size = newSize;
         delete [] data;
         data = temp;
+        ptr = nullptr;
+        temp = nullptr;
     }
 
     void erase(iterator it1, iterator it2){
@@ -175,6 +177,8 @@ public:
         size = newSize;
         delete [] data;
         data = temp;
+        ptr = nullptr;
+        temp = nullptr;
     }
 	// modifying operations
 
@@ -196,6 +200,8 @@ public:
         size = newSize;
         delete [] data;
         data = temp;
+        ptr = nullptr;
+        temp = nullptr;
     }
 
     iterator begin() { return iterator(data);}
@@ -207,15 +213,15 @@ public:
 		}
 		else {
 			cout << "Resizing to..." << capacity * 2 << endl;
-			T* newdata = new T[capacity * 2];
+			T* newData = new T[capacity * 2];
 			capacity *= 2;
 
 			for (int i = 0; i < size; i++) {
-				newdata[i] = data[i];
+                newData[i] = data[i];
 			}
 			delete[] data;
-			data = newdata;
-			newdata = nullptr;
+			data = newData;
+            newData = nullptr;
 			data[size++] = temp;
 		}
 		return size;
@@ -309,7 +315,15 @@ public:
 		return capacity;
 	}
 
-	
+	int resize() {
+        T* temp = new T[capacity * 2];
+        for(int i = 0; i < size; i++){
+            temp[i] = data[i];
+        }
+        delete [] data;
+        data = temp;
+        temp = nullptr;
+    }
 
 	bool empty() {
 		if (size == 0) {
