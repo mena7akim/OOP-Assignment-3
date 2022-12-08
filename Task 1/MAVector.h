@@ -5,42 +5,6 @@
 #include <iostream>
 using namespace std;
 
-//template <typename T>
-//class iterator
-//{
-//public:
-//    using valueType = typename T::valueType;
-//    using pointer = T*;
-//    using reference = T&;
-//
-//    iterator(pointer ptr) : p(ptr) {}
-//    reference operator*() const {
-//        return *p;
-//    }
-//    pointer operator->() {
-//        return p;
-//    }
-//    iterator& operator++() {
-//        p++;
-//        return *this;
-//    }
-//    iterator operator++(int) {
-//        iterator tmp = *this;
-//        ++(*this);
-//        return tmp;
-//    }
-//    friend bool operator== (const iterator& a, const iterator& b) {
-//        return a.p == b.p;
-//    };
-//    friend bool operator!= (const iterator& a, const iterator& b) {
-//        return a.p != b.p;
-//    };
-//
-//private:
-//    pointer p;
-//};
-
-
 
 template <class T>
 class MAVector
