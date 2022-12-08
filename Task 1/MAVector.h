@@ -2,9 +2,44 @@
 #define TASK_1_MAVECTOR_H
 #pragma once
 
-#include "iterator.h"
 #include <iostream>
 using namespace std;
+
+//template <typename T>
+//class iterator
+//{
+//public:
+//    using valueType = typename T::valueType;
+//    using pointer = T*;
+//    using reference = T&;
+//
+//    iterator(pointer ptr) : p(ptr) {}
+//    reference operator*() const {
+//        return *p;
+//    }
+//    pointer operator->() {
+//        return p;
+//    }
+//    iterator& operator++() {
+//        p++;
+//        return *this;
+//    }
+//    iterator operator++(int) {
+//        iterator tmp = *this;
+//        ++(*this);
+//        return tmp;
+//    }
+//    friend bool operator== (const iterator& a, const iterator& b) {
+//        return a.p == b.p;
+//    };
+//    friend bool operator!= (const iterator& a, const iterator& b) {
+//        return a.p != b.p;
+//    };
+//
+//private:
+//    pointer p;
+//};
+
 
 
 template <class T>
@@ -13,7 +48,42 @@ class MAVector
 private:
 	int size, capacity;
 	T* data;
+
 public:
+//    template <typename T>
+    class iterator
+    {
+    public:
+        using valueType = typename T::valueType;
+        using pointer = T*;
+        using reference = T&;
+
+        iterator(pointer ptr) : p(ptr) {}
+        reference operator*() const {
+            return *p;
+        }
+        pointer operator->() {
+            return p;
+        }
+        iterator& operator++() {
+            p++;
+            return *this;
+        }
+        iterator operator++(int) {
+            iterator tmp = *this;
+            ++(*this);
+            return tmp;
+        }
+        friend bool operator== (const iterator& a, const iterator& b) {
+            return a.p == b.p;
+        };
+        friend bool operator!= (const iterator& a, const iterator& b) {
+            return a.p != b.p;
+        };
+
+    private:
+        pointer p;
+    };
 
 	// constuctors and Big 4
 
@@ -101,10 +171,71 @@ public:
 		}
 	}
 
+    void erase(iterator it){
+        T* ptr = data;
+        for(; ptr <= data + size; ptr++){
+            if(ptr == it) break;
+        }
+        if(ptr == data + size){
+            throw invalid_argument("invalid iterator");
+        }
+        T* temp = new T[capacity];
+        ptr = data;
+        int newSize = 0;
+        for(; ptr < data + size; ptr++){
+            if(ptr == it) continue;
+            temp[newSize++] = *ptr;
+        }
+        size = newSize;
+        delete [] data;
+        data = temp;
+    }
 
-
+    void erase(iterator it1, iterator it2){
+        bool validIt1 = 0, validIt2 = 0;
+        T* ptr = data;
+        for(; ptr < data + size; ptr++){
+            if(ptr == it1 && !validIt2) validIt1 = 1;
+            if(ptr == it2 && validIt1)  validIt2 = 1;
+        }
+        if(!validIt1 || !validIt2){
+            throw invalid_argument("invalid iterator");
+        }
+        T* temp = new T[capacity];
+        ptr = data;
+        int newSize = 0;
+        for(; ptr < data + size; ptr++){
+            if(ptr >= it1 || ptr <= it2) continue;
+            temp[newSize++] = *ptr;
+        }
+        size = newSize;
+        delete [] data;
+        data = temp;
+    }
 	// modifying operations
 
+    void insert(iterator it, T value){
+        T* ptr = data;
+        for(; ptr <= data + size; ptr++){
+            if(ptr == it) break;
+        }
+        if(ptr == data + size){
+            throw invalid_argument("invalid iterator");
+        }
+        T* temp = new T[capacity];
+        ptr = data;
+        int newSize = 0;
+        for(; ptr < data + size; ptr++){
+            temp[newSize++] = *ptr;
+            if(ptr == it) ptr--;
+        }
+        size = newSize;
+        delete [] data;
+        data = temp;
+    }
+
+    iterator begin() { return iterator(data);}
+    iterator end() { return iterator(data + size);}
 
 	int push_back(T temp) {
 		if (size < capacity) {
@@ -226,6 +357,13 @@ public:
 		}
 	}
 
+    friend ostream& operator << (ostream& out, MAVector<T> v) {
+        for(int i = 0; i < v.Size(); i++){
+            out << v[i] << ' ';
+        }
+        out << '\n';
+        return out;
+    }
 	
 };
 
