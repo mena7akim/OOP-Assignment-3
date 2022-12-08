@@ -147,7 +147,7 @@ public:
         ptr = data;
         int newSize = 0;
         for(; ptr < data + size; ptr++){
-            if(ptr == it) continue;
+            if(iterator(ptr) == it) continue;
             temp[newSize++] = *ptr;
         }
         size = newSize;
@@ -171,7 +171,7 @@ public:
         ptr = data;
         int newSize = 0;
         for(; ptr < data + size; ptr++){
-            if(ptr >= it1 || ptr <= it2) continue;
+            if(iterator(ptr) >= it1 || iterator(ptr) <= it2) continue;
             temp[newSize++] = *ptr;
         }
         size = newSize;
@@ -195,7 +195,7 @@ public:
         int newSize = 0;
         for(; ptr < data + size; ptr++){
             temp[newSize++] = *ptr;
-            if(ptr == it) ptr--;
+            if(iterator(ptr) == it) ptr--;
         }
         size = newSize;
         delete [] data;
