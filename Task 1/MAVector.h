@@ -16,12 +16,15 @@ private:
 public:
     using iterator = T*;
     using const_iterator = T const*;
-	MAVector(int cap = 2) {
+
+    //! Initialize by specific capacity No content is added, size = 0 Assign a default size value
+    MAVector(int cap = 2) {
 		this->capacity = cap;
 		this->size = 0;
 		this->data = new T[capacity];
 	}
 
+    //! Initialize by n items from array
 	MAVector(T* arr, int n) {
 		this->capacity = 2;
 		this->data = new T[capacity];
@@ -36,7 +39,7 @@ public:
 		this->size = n;
 	}
 
-
+    //! Initialize with a copy
 	MAVector(const MAVector& other) {
 		this->size = other.size;
 		this->capacity = other.capacity;
@@ -47,7 +50,7 @@ public:
 		
 	}
 
-
+    //! Copy assignment
 	MAVector& operator=(const MAVector& other) {
 		if (this != &other) {
 			delete[] data;
@@ -61,7 +64,7 @@ public:
 		return *this;
 	}
 
-
+    //! Move assignment
 	MAVector& operator=(const MAVector&& other) {
 		if (this != &other) {
 			delete[] data;
@@ -78,25 +81,22 @@ public:
 		return *this;
 	}
 
-
+    //! Delete allocated memory
 	~MAVector() {
 		delete[] data;
 	}
 
-
-
-	//Access operations
-
-	T& operator[](int index) {
+    //! Access item by reference, Throw an exception if out of range
+    T& operator[](int index) {
 		if (index <= size - 1) {
 			return data[index];
 		}
 		else {
-			// we need here throw an exception if out of range
             throw out_of_range("index out of range");
 		}
 	}
 
+    //! Remove item at iterator, Throw exception if invalid iter
     void erase(iterator it){
         T* ptr = data;
         for(; ptr <= data + size; ptr++){
@@ -119,6 +119,7 @@ public:
         temp = nullptr;
     }
 
+    //! Remove items between iterator 1 <= iterator 2 otherwise do nothing, Throw exception if any iterator outside range
     void erase(iterator it1, iterator it2){
         bool validIt1 = 0, validIt2 = 0;
         T* ptr = data;
@@ -142,8 +143,8 @@ public:
         ptr = nullptr;
         temp = nullptr;
     }
-	// modifying operations
 
+    //! Insert item at iterator, Throw exception if invalid
     void insert(iterator it, T value){
         T* ptr = data;
         for(; ptr <= data + size; ptr++){
@@ -167,16 +168,18 @@ public:
         ptr = nullptr;
         temp = nullptr;
     }
-
+    //! Return an iterator to the beginning of the array
     iterator begin() { return iterator(&data[0]);}
+
+    //! Return an iterator to the end of the array
     iterator end() { return iterator(&data[size]);}
 
-	int push_back(T temp) {
+    //! Access item by reference, Throw an exception if out of range
+    int push_back(T temp) {
 		if (size < capacity) {
 			data[size++] = temp;
 		}
 		else {
-			cout << "Resizing to..." << capacity * 2 << endl;
 			T* newData = new T[capacity * 2];
 			capacity *= 2;
 
@@ -191,22 +194,20 @@ public:
 		return size;
 	}
 
-
+    //! Remove and return last element in vec
 	T pop_back() {    
 		this->size -= 1;
 		return data[size - 1];
 	}
 
-
+    //! Delete all vector content
 	void clear() {
 		this->size = 0;
 		delete[] data;
 		data = new T[capacity];
 	}
 
-
-	// Comparison operations
-
+    //! Return true if two vectors are equal
 	bool operator==(const MAVector<T>& other) {
 		if (size == other.size) {
 			int sum = 0;
@@ -229,7 +230,7 @@ public:
 		}
 	}
 
-
+    //! Compares item by item, Return true if first different item in this is < in other
 	bool operator< (const MAVector<T>&other) {
 		if (other.size <= size) {
 			for (int i = 0; i < other.size; i++) {
@@ -261,16 +262,17 @@ public:
 	}
 
 
-	// Capacity operations
-
+    //! Return current size of vec
 	int Size() const {
 		return size;
 	}
 
+    //! Return size of current allocated array
 	int Capacity() const {
 		return capacity;
 	}
 
+    //! Relocate to bigger space
 	void resize() {
         T* temp = new T[capacity * 2];
         for(int i = 0; i < size; i++){
@@ -281,7 +283,8 @@ public:
         temp = nullptr;
     }
 
-	bool empty() {
+    //! Return true if size is 0
+    bool empty() {
 		if (size == 0) {
 			return true;
 		}
@@ -289,7 +292,7 @@ public:
 			return false;
 		}
 	}
-
+    //! Print the content of the array
     friend ostream& operator << (ostream& out, MAVector<T> &v) {
         for(int i = 0; i < v.Size(); i++){
             out << v[i] << ' ';

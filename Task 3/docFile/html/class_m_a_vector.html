@@ -91,69 +91,94 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>const_iterator</b> =
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad12343cb277edb5662078a883342f923"><td class="memItemLeft" align="right" valign="top"><a id="ad12343cb277edb5662078a883342f923" name="ad12343cb277edb5662078a883342f923"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>MAVector</b> (int cap=2)</td></tr>
+<tr class="memdesc:ad12343cb277edb5662078a883342f923"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize by specific capacity No content is added, size = 0 Assign a default size value. <br /></td></tr>
 <tr class="separator:ad12343cb277edb5662078a883342f923"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4915958192ebfb2fc5e4a785618b355"><td class="memItemLeft" align="right" valign="top"><a id="aa4915958192ebfb2fc5e4a785618b355" name="aa4915958192ebfb2fc5e4a785618b355"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>MAVector</b> (T *arr, int n)</td></tr>
+<tr class="memdesc:aa4915958192ebfb2fc5e4a785618b355"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize by n items from array. <br /></td></tr>
 <tr class="separator:aa4915958192ebfb2fc5e4a785618b355"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b8608f663475f9067f2a7aa90313cd9"><td class="memItemLeft" align="right" valign="top"><a id="a5b8608f663475f9067f2a7aa90313cd9" name="a5b8608f663475f9067f2a7aa90313cd9"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>MAVector</b> (const <a class="el" href="class_m_a_vector.html">MAVector</a> &amp;other)</td></tr>
+<tr class="memdesc:a5b8608f663475f9067f2a7aa90313cd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize with a copy. <br /></td></tr>
 <tr class="separator:a5b8608f663475f9067f2a7aa90313cd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a124a8525783390a012a458a1b739bd0f"><td class="memItemLeft" align="right" valign="top"><a id="a124a8525783390a012a458a1b739bd0f" name="a124a8525783390a012a458a1b739bd0f"></a>
 <a class="el" href="class_m_a_vector.html">MAVector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="class_m_a_vector.html">MAVector</a> &amp;other)</td></tr>
+<tr class="memdesc:a124a8525783390a012a458a1b739bd0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment. <br /></td></tr>
 <tr class="separator:a124a8525783390a012a458a1b739bd0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a182538c8aa9e7d35c31a50006eb33460"><td class="memItemLeft" align="right" valign="top"><a id="a182538c8aa9e7d35c31a50006eb33460" name="a182538c8aa9e7d35c31a50006eb33460"></a>
 <a class="el" href="class_m_a_vector.html">MAVector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="class_m_a_vector.html">MAVector</a> &amp;&amp;other)</td></tr>
+<tr class="memdesc:a182538c8aa9e7d35c31a50006eb33460"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment. <br /></td></tr>
 <tr class="separator:a182538c8aa9e7d35c31a50006eb33460"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e1a19ee33ae43e63aa86b46cccf68f9"><td class="memItemLeft" align="right" valign="top"><a id="a2e1a19ee33ae43e63aa86b46cccf68f9" name="a2e1a19ee33ae43e63aa86b46cccf68f9"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~MAVector</b> ()</td></tr>
+<tr class="memdesc:a2e1a19ee33ae43e63aa86b46cccf68f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete allocated memory. <br /></td></tr>
+<tr class="separator:a2e1a19ee33ae43e63aa86b46cccf68f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15293989cf206cf80c91cab77b670394"><td class="memItemLeft" align="right" valign="top"><a id="a15293989cf206cf80c91cab77b670394" name="a15293989cf206cf80c91cab77b670394"></a>
 T &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (int index)</td></tr>
+<tr class="memdesc:a15293989cf206cf80c91cab77b670394"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access item by reference, Throw an exception if out of range. <br /></td></tr>
 <tr class="separator:a15293989cf206cf80c91cab77b670394"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a721fcda95fafaf168eaf4971b0758a5f"><td class="memItemLeft" align="right" valign="top"><a id="a721fcda95fafaf168eaf4971b0758a5f" name="a721fcda95fafaf168eaf4971b0758a5f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>erase</b> (iterator it)</td></tr>
+<tr class="memdesc:a721fcda95fafaf168eaf4971b0758a5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove item at iterator, Throw exception if invalid iter. <br /></td></tr>
 <tr class="separator:a721fcda95fafaf168eaf4971b0758a5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84d4c254cb3c11905822445f7fb8cd02"><td class="memItemLeft" align="right" valign="top"><a id="a84d4c254cb3c11905822445f7fb8cd02" name="a84d4c254cb3c11905822445f7fb8cd02"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>erase</b> (iterator it1, iterator it2)</td></tr>
+<tr class="memdesc:a84d4c254cb3c11905822445f7fb8cd02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove items between iterator 1 &lt;= iterator 2 otherwise do nothing, Throw exception if any iterator outside range. <br /></td></tr>
 <tr class="separator:a84d4c254cb3c11905822445f7fb8cd02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a709b9b62141ecd8020f03cdf4ab02b59"><td class="memItemLeft" align="right" valign="top"><a id="a709b9b62141ecd8020f03cdf4ab02b59" name="a709b9b62141ecd8020f03cdf4ab02b59"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>insert</b> (iterator it, T value)</td></tr>
+<tr class="memdesc:a709b9b62141ecd8020f03cdf4ab02b59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert item at iterator, Throw exception if invalid. <br /></td></tr>
 <tr class="separator:a709b9b62141ecd8020f03cdf4ab02b59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a344cd4bf3f80a648b32832f64dd576"><td class="memItemLeft" align="right" valign="top"><a id="a0a344cd4bf3f80a648b32832f64dd576" name="a0a344cd4bf3f80a648b32832f64dd576"></a>
 iterator&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> ()</td></tr>
+<tr class="memdesc:a0a344cd4bf3f80a648b32832f64dd576"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return an iterator to the beginning of the array. <br /></td></tr>
 <tr class="separator:a0a344cd4bf3f80a648b32832f64dd576"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88a7e16a657cfbe571c2f21b53254d0e"><td class="memItemLeft" align="right" valign="top"><a id="a88a7e16a657cfbe571c2f21b53254d0e" name="a88a7e16a657cfbe571c2f21b53254d0e"></a>
 iterator&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> ()</td></tr>
+<tr class="memdesc:a88a7e16a657cfbe571c2f21b53254d0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return an iterator to the end of the array. <br /></td></tr>
 <tr class="separator:a88a7e16a657cfbe571c2f21b53254d0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78c2b2c3bbb9666fdeec377f3a3d96d6"><td class="memItemLeft" align="right" valign="top"><a id="a78c2b2c3bbb9666fdeec377f3a3d96d6" name="a78c2b2c3bbb9666fdeec377f3a3d96d6"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>push_back</b> (T temp)</td></tr>
+<tr class="memdesc:a78c2b2c3bbb9666fdeec377f3a3d96d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access item by reference, Throw an exception if out of range. <br /></td></tr>
 <tr class="separator:a78c2b2c3bbb9666fdeec377f3a3d96d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5499889ca5961bb2c720c4845fbf021"><td class="memItemLeft" align="right" valign="top"><a id="af5499889ca5961bb2c720c4845fbf021" name="af5499889ca5961bb2c720c4845fbf021"></a>
 T&#160;</td><td class="memItemRight" valign="bottom"><b>pop_back</b> ()</td></tr>
+<tr class="memdesc:af5499889ca5961bb2c720c4845fbf021"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove and return last element in vec. <br /></td></tr>
 <tr class="separator:af5499889ca5961bb2c720c4845fbf021"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f9f679233fd4d47cefc42c73b6bdfbe"><td class="memItemLeft" align="right" valign="top"><a id="a4f9f679233fd4d47cefc42c73b6bdfbe" name="a4f9f679233fd4d47cefc42c73b6bdfbe"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr>
+<tr class="memdesc:a4f9f679233fd4d47cefc42c73b6bdfbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete all vector content. <br /></td></tr>
 <tr class="separator:a4f9f679233fd4d47cefc42c73b6bdfbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6831936c2a3ef1a66750b54850e8852c"><td class="memItemLeft" align="right" valign="top"><a id="a6831936c2a3ef1a66750b54850e8852c" name="a6831936c2a3ef1a66750b54850e8852c"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_m_a_vector.html">MAVector</a>&lt; T &gt; &amp;other)</td></tr>
+<tr class="memdesc:a6831936c2a3ef1a66750b54850e8852c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true if two vectors are equal. <br /></td></tr>
 <tr class="separator:a6831936c2a3ef1a66750b54850e8852c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63b25c9e40bf36b486f1d956f7451fea"><td class="memItemLeft" align="right" valign="top"><a id="a63b25c9e40bf36b486f1d956f7451fea" name="a63b25c9e40bf36b486f1d956f7451fea"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="class_m_a_vector.html">MAVector</a>&lt; T &gt; &amp;other)</td></tr>
+<tr class="memdesc:a63b25c9e40bf36b486f1d956f7451fea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares item by item, Return true if first different item in this is &lt; in other. <br /></td></tr>
 <tr class="separator:a63b25c9e40bf36b486f1d956f7451fea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b39aff6f2f6641b867b57384c9e055e"><td class="memItemLeft" align="right" valign="top"><a id="a0b39aff6f2f6641b867b57384c9e055e" name="a0b39aff6f2f6641b867b57384c9e055e"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>Size</b> () const</td></tr>
+<tr class="memdesc:a0b39aff6f2f6641b867b57384c9e055e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return current size of vec. <br /></td></tr>
 <tr class="separator:a0b39aff6f2f6641b867b57384c9e055e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1cce856112c294153eac138829cd7e13"><td class="memItemLeft" align="right" valign="top"><a id="a1cce856112c294153eac138829cd7e13" name="a1cce856112c294153eac138829cd7e13"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>Capacity</b> () const</td></tr>
+<tr class="memdesc:a1cce856112c294153eac138829cd7e13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return size of current allocated array. <br /></td></tr>
 <tr class="separator:a1cce856112c294153eac138829cd7e13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae8ed2ce66b0f82a18f83f83963423ab"><td class="memItemLeft" align="right" valign="top"><a id="aae8ed2ce66b0f82a18f83f83963423ab" name="aae8ed2ce66b0f82a18f83f83963423ab"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>resize</b> ()</td></tr>
+<tr class="memdesc:aae8ed2ce66b0f82a18f83f83963423ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Relocate to bigger space. <br /></td></tr>
 <tr class="separator:aae8ed2ce66b0f82a18f83f83963423ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf998fa1e2be7b514cec186a6d22ce05"><td class="memItemLeft" align="right" valign="top"><a id="acf998fa1e2be7b514cec186a6d22ce05" name="acf998fa1e2be7b514cec186a6d22ce05"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>empty</b> ()</td></tr>
+<tr class="memdesc:acf998fa1e2be7b514cec186a6d22ce05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true if size is 0. <br /></td></tr>
 <tr class="separator:acf998fa1e2be7b514cec186a6d22ce05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
 <tr class="memitem:ab00a435cb7695031816a52641c6c61bf"><td class="memItemLeft" align="right" valign="top"><a id="ab00a435cb7695031816a52641c6c61bf" name="ab00a435cb7695031816a52641c6c61bf"></a>
 ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (ostream &amp;out, <a class="el" href="class_m_a_vector.html">MAVector</a>&lt; T &gt; &amp;v)</td></tr>
+<tr class="memdesc:ab00a435cb7695031816a52641c6c61bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the content of the array. <br /></td></tr>
 <tr class="separator:ab00a435cb7695031816a52641c6c61bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following file:<ul>

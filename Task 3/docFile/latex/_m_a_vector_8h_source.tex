@@ -1,0 +1,291 @@
+\hypertarget{_m_a_vector_8h_source}{}\doxysection{MAVector.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TASK\_1\_MAVECTOR\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define TASK\_1\_MAVECTOR\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{6 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_m_a_vector}{MAVector}}}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12 \textcolor{keyword}{private}:}
+\DoxyCodeLine{13     \textcolor{keywordtype}{int} size, capacity;}
+\DoxyCodeLine{14     T* data;}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{public}:}
+\DoxyCodeLine{17     \textcolor{keyword}{using }iterator = T*;}
+\DoxyCodeLine{18     \textcolor{keyword}{using }const\_iterator = T \textcolor{keyword}{const}*;}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{21     \mbox{\hyperlink{class_m_a_vector_ad12343cb277edb5662078a883342f923}{MAVector}}(\textcolor{keywordtype}{int} cap = 2) \{}
+\DoxyCodeLine{22         this-\/>capacity = cap;}
+\DoxyCodeLine{23         this-\/>size = 0;}
+\DoxyCodeLine{24         this-\/>data = \textcolor{keyword}{new} T[capacity];}
+\DoxyCodeLine{25     \}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{28     \mbox{\hyperlink{class_m_a_vector_aa4915958192ebfb2fc5e4a785618b355}{MAVector}}(T* arr, \textcolor{keywordtype}{int} n) \{}
+\DoxyCodeLine{29         this-\/>capacity = 2;}
+\DoxyCodeLine{30         this-\/>data = \textcolor{keyword}{new} T[capacity];}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32         \textcolor{keywordflow}{while} (capacity < n) \{}
+\DoxyCodeLine{33             this-\/>data = \textcolor{keyword}{new} T[capacity * 2];}
+\DoxyCodeLine{34             capacity *= 2;}
+\DoxyCodeLine{35         \}}
+\DoxyCodeLine{36         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < n; i++) \{}
+\DoxyCodeLine{37             data[i] = arr[i];}
+\DoxyCodeLine{38         \}}
+\DoxyCodeLine{39         this-\/>size = n;}
+\DoxyCodeLine{40     \}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{43     \mbox{\hyperlink{class_m_a_vector_a5b8608f663475f9067f2a7aa90313cd9}{MAVector}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_m_a_vector}{MAVector}}\& other) \{}
+\DoxyCodeLine{44         this-\/>size = other.size;}
+\DoxyCodeLine{45         this-\/>capacity = other.capacity;}
+\DoxyCodeLine{46         data = \textcolor{keyword}{new} T[other.size];}
+\DoxyCodeLine{47         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < other.size; i++) \{}
+\DoxyCodeLine{48             data[i] = other.data[i];}
+\DoxyCodeLine{49         \}}
+\DoxyCodeLine{50         }
+\DoxyCodeLine{51     \}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{54     \mbox{\hyperlink{class_m_a_vector}{MAVector}}\& \mbox{\hyperlink{class_m_a_vector_a124a8525783390a012a458a1b739bd0f}{operator=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_m_a_vector}{MAVector}}\& other) \{}
+\DoxyCodeLine{55         \textcolor{keywordflow}{if} (\textcolor{keyword}{this} != \&other) \{}
+\DoxyCodeLine{56             \textcolor{keyword}{delete}[] data;}
+\DoxyCodeLine{57             this-\/>size = other.size;}
+\DoxyCodeLine{58             this-\/>capacity = other.capacity;}
+\DoxyCodeLine{59             data = \textcolor{keyword}{new} T[other.size];}
+\DoxyCodeLine{60             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < other.size; i++) \{}
+\DoxyCodeLine{61                 data[i] = other.data[i];}
+\DoxyCodeLine{62             \}}
+\DoxyCodeLine{63         \}}
+\DoxyCodeLine{64         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{65     \}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{68     \mbox{\hyperlink{class_m_a_vector}{MAVector}}\& \mbox{\hyperlink{class_m_a_vector_a182538c8aa9e7d35c31a50006eb33460}{operator=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_m_a_vector}{MAVector}}\&\& other) \{}
+\DoxyCodeLine{69         \textcolor{keywordflow}{if} (\textcolor{keyword}{this} != \&other) \{}
+\DoxyCodeLine{70             \textcolor{keyword}{delete}[] data;}
+\DoxyCodeLine{71             this-\/>size = other.size;}
+\DoxyCodeLine{72             this-\/>capacity = other.capacity;}
+\DoxyCodeLine{73             data = \textcolor{keyword}{new} T[other.size];}
+\DoxyCodeLine{74             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < other.size; i++) \{}
+\DoxyCodeLine{75                 data[i] = other.data[i];}
+\DoxyCodeLine{76             \}}
+\DoxyCodeLine{77             other.size = 0;}
+\DoxyCodeLine{78             other.capacity = 0;}
+\DoxyCodeLine{79             other.data = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{80         \}}
+\DoxyCodeLine{81         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{82     \}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{85     \mbox{\hyperlink{class_m_a_vector_a2e1a19ee33ae43e63aa86b46cccf68f9}{\string~MAVector}}() \{}
+\DoxyCodeLine{86         \textcolor{keyword}{delete}[] data;}
+\DoxyCodeLine{87     \}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{90     T\& \mbox{\hyperlink{class_m_a_vector_a15293989cf206cf80c91cab77b670394}{operator[]}}(\textcolor{keywordtype}{int} index) \{}
+\DoxyCodeLine{91         \textcolor{keywordflow}{if} (index <= size -\/ 1) \{}
+\DoxyCodeLine{92             \textcolor{keywordflow}{return} data[index];}
+\DoxyCodeLine{93         \}}
+\DoxyCodeLine{94         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{95             \textcolor{keywordflow}{throw} out\_of\_range(\textcolor{stringliteral}{"{}index out of range"{}});}
+\DoxyCodeLine{96         \}}
+\DoxyCodeLine{97     \}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{100     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_m_a_vector_a721fcda95fafaf168eaf4971b0758a5f}{erase}}(iterator it)\{}
+\DoxyCodeLine{101         T* ptr = data;}
+\DoxyCodeLine{102         \textcolor{keywordflow}{for}(; ptr <= data + size; ptr++)\{}
+\DoxyCodeLine{103             \textcolor{keywordflow}{if}(ptr == it) \textcolor{keywordflow}{break};}
+\DoxyCodeLine{104         \}}
+\DoxyCodeLine{105         \textcolor{keywordflow}{if}(ptr == data + size)\{}
+\DoxyCodeLine{106             \textcolor{keywordflow}{throw} invalid\_argument(\textcolor{stringliteral}{"{}invalid iterator"{}});}
+\DoxyCodeLine{107         \}}
+\DoxyCodeLine{108         T* temp = \textcolor{keyword}{new} T[capacity];}
+\DoxyCodeLine{109         ptr = data;}
+\DoxyCodeLine{110         \textcolor{keywordtype}{int} newSize = 0;}
+\DoxyCodeLine{111         \textcolor{keywordflow}{for}(; ptr < data + size; ptr++)\{}
+\DoxyCodeLine{112             \textcolor{keywordflow}{if}(iterator(ptr) == it) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{113             temp[newSize++] = *ptr;}
+\DoxyCodeLine{114         \}}
+\DoxyCodeLine{115         size = newSize;}
+\DoxyCodeLine{116         \textcolor{keyword}{delete} [] data;}
+\DoxyCodeLine{117         data = temp;}
+\DoxyCodeLine{118         ptr = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{119         temp = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{120     \}}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{123     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_m_a_vector_a84d4c254cb3c11905822445f7fb8cd02}{erase}}(iterator it1, iterator it2)\{}
+\DoxyCodeLine{124         \textcolor{keywordtype}{bool} validIt1 = 0, validIt2 = 0;}
+\DoxyCodeLine{125         T* ptr = data;}
+\DoxyCodeLine{126         \textcolor{keywordflow}{for}(; ptr < data + size; ptr++)\{}
+\DoxyCodeLine{127             \textcolor{keywordflow}{if}(ptr == it1 \&\& !validIt2) validIt1 = 1;}
+\DoxyCodeLine{128             \textcolor{keywordflow}{if}(ptr == it2 \&\& validIt1)  validIt2 = 1;}
+\DoxyCodeLine{129         \}}
+\DoxyCodeLine{130         \textcolor{keywordflow}{if}(!validIt1 || !validIt2)\{}
+\DoxyCodeLine{131             \textcolor{keywordflow}{throw} invalid\_argument(\textcolor{stringliteral}{"{}invalid iterator"{}});}
+\DoxyCodeLine{132         \}}
+\DoxyCodeLine{133         T* temp = \textcolor{keyword}{new} T[capacity];}
+\DoxyCodeLine{134         ptr = data;}
+\DoxyCodeLine{135         \textcolor{keywordtype}{int} newSize = 0;}
+\DoxyCodeLine{136         \textcolor{keywordflow}{for}(; ptr < data + size; ptr++)\{}
+\DoxyCodeLine{137             \textcolor{keywordflow}{if}(ptr >= it1 \&\& iterator(ptr) <= it2) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{138             temp[newSize++] = *ptr;}
+\DoxyCodeLine{139         \}}
+\DoxyCodeLine{140         size = newSize;}
+\DoxyCodeLine{141         \textcolor{keyword}{delete} [] data;}
+\DoxyCodeLine{142         data = temp;}
+\DoxyCodeLine{143         ptr = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{144         temp = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{145     \}}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{148     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_m_a_vector_a709b9b62141ecd8020f03cdf4ab02b59}{insert}}(iterator it, T value)\{}
+\DoxyCodeLine{149         T* ptr = data;}
+\DoxyCodeLine{150         \textcolor{keywordflow}{for}(; ptr <= data + size; ptr++)\{}
+\DoxyCodeLine{151             \textcolor{keywordflow}{if}(ptr == it) \textcolor{keywordflow}{break};}
+\DoxyCodeLine{152         \}}
+\DoxyCodeLine{153         \textcolor{keywordflow}{if}(ptr == data + size)\{}
+\DoxyCodeLine{154             \textcolor{keywordflow}{throw} invalid\_argument(\textcolor{stringliteral}{"{}invalid iterator"{}});}
+\DoxyCodeLine{155         \}}
+\DoxyCodeLine{156         T* temp = \textcolor{keyword}{new} T[capacity];}
+\DoxyCodeLine{157         ptr = data;}
+\DoxyCodeLine{158         \textcolor{keywordtype}{int} newSize = 0;}
+\DoxyCodeLine{159         \textcolor{keywordflow}{for}(; ptr < data + size; ptr++)\{}
+\DoxyCodeLine{160             \textcolor{keywordflow}{if}(iterator(ptr) == it) \{}
+\DoxyCodeLine{161                 temp[newSize++] = value;}
+\DoxyCodeLine{162             \}}
+\DoxyCodeLine{163             temp[newSize++] = *ptr;}
+\DoxyCodeLine{164         \}}
+\DoxyCodeLine{165         size = newSize;}
+\DoxyCodeLine{166         \textcolor{keyword}{delete} [] data;}
+\DoxyCodeLine{167         data = temp;}
+\DoxyCodeLine{168         ptr = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{169         temp = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{170     \}}
+\DoxyCodeLine{172     iterator \mbox{\hyperlink{class_m_a_vector_a0a344cd4bf3f80a648b32832f64dd576}{begin}}() \{ \textcolor{keywordflow}{return} iterator(\&data[0]);\}}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{175     iterator \mbox{\hyperlink{class_m_a_vector_a88a7e16a657cfbe571c2f21b53254d0e}{end}}() \{ \textcolor{keywordflow}{return} iterator(\&data[size]);\}}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{178     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_m_a_vector_a78c2b2c3bbb9666fdeec377f3a3d96d6}{push\_back}}(T temp) \{}
+\DoxyCodeLine{179         \textcolor{keywordflow}{if} (size < capacity) \{}
+\DoxyCodeLine{180             data[size++] = temp;}
+\DoxyCodeLine{181         \}}
+\DoxyCodeLine{182         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{183             T* newData = \textcolor{keyword}{new} T[capacity * 2];}
+\DoxyCodeLine{184             capacity *= 2;}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{186             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < size; i++) \{}
+\DoxyCodeLine{187                 newData[i] = data[i];}
+\DoxyCodeLine{188             \}}
+\DoxyCodeLine{189             \textcolor{keyword}{delete}[] data;}
+\DoxyCodeLine{190             data = newData;}
+\DoxyCodeLine{191             newData = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{192             data[size++] = temp;}
+\DoxyCodeLine{193         \}}
+\DoxyCodeLine{194         \textcolor{keywordflow}{return} size;}
+\DoxyCodeLine{195     \}}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{198     T \mbox{\hyperlink{class_m_a_vector_af5499889ca5961bb2c720c4845fbf021}{pop\_back}}() \{    }
+\DoxyCodeLine{199         this-\/>size -\/= 1;}
+\DoxyCodeLine{200         \textcolor{keywordflow}{return} data[size -\/ 1];}
+\DoxyCodeLine{201     \}}
+\DoxyCodeLine{202 }
+\DoxyCodeLine{204     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_m_a_vector_a4f9f679233fd4d47cefc42c73b6bdfbe}{clear}}() \{}
+\DoxyCodeLine{205         this-\/>size = 0;}
+\DoxyCodeLine{206         \textcolor{keyword}{delete}[] data;}
+\DoxyCodeLine{207         data = \textcolor{keyword}{new} T[capacity];}
+\DoxyCodeLine{208     \}}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{211     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_m_a_vector_a6831936c2a3ef1a66750b54850e8852c}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_m_a_vector}{MAVector<T>}}\& other) \{}
+\DoxyCodeLine{212         \textcolor{keywordflow}{if} (size == other.size) \{}
+\DoxyCodeLine{213             \textcolor{keywordtype}{int} sum = 0;}
+\DoxyCodeLine{214             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < size; i++) \{}
+\DoxyCodeLine{215                 \textcolor{keywordflow}{if} (data[i] == other.data[i]) \{}
+\DoxyCodeLine{216                     sum++;}
+\DoxyCodeLine{217                 \}}
+\DoxyCodeLine{218             \}}
+\DoxyCodeLine{219             \textcolor{keywordflow}{if} (sum == other.size) \{}
+\DoxyCodeLine{220                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{221             \}}
+\DoxyCodeLine{222             \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{223                 cout << \textcolor{stringliteral}{"{}these ara not equal"{}} << endl;}
+\DoxyCodeLine{224                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{225             \}}
+\DoxyCodeLine{226         \}}
+\DoxyCodeLine{227         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{228             cout << \textcolor{stringliteral}{"{}these size ara not equal"{}} << endl;}
+\DoxyCodeLine{229             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{230         \}}
+\DoxyCodeLine{231     \}}
+\DoxyCodeLine{232 }
+\DoxyCodeLine{234     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_m_a_vector_a63b25c9e40bf36b486f1d956f7451fea}{operator< }}(\textcolor{keyword}{const} \mbox{\hyperlink{class_m_a_vector}{MAVector<T>}}\&other) \{}
+\DoxyCodeLine{235         \textcolor{keywordflow}{if} (other.size <= size) \{}
+\DoxyCodeLine{236             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < other.size; i++) \{}
+\DoxyCodeLine{237                 \textcolor{keywordflow}{if} (data[i] < other.data[i]) \{}
+\DoxyCodeLine{238                     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{239                 \}}
+\DoxyCodeLine{240                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (data[i] > other.data[i]) \{}
+\DoxyCodeLine{241                     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{242                 \}}
+\DoxyCodeLine{243                 \textcolor{keywordflow}{if} ((i == size -\/ 1) \&\& (data[i] == other.data[i])) \{}
+\DoxyCodeLine{244                     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{245                 \}}
+\DoxyCodeLine{246             \}}
+\DoxyCodeLine{247         \}}
+\DoxyCodeLine{248         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(other.size > size) \{}
+\DoxyCodeLine{249             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < size; i++) \{}
+\DoxyCodeLine{250                 \textcolor{keywordflow}{if} (data[i] < other.data[i]) \{}
+\DoxyCodeLine{251                     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{252                 \}}
+\DoxyCodeLine{253                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (data[i] > other.data[i]) \{}
+\DoxyCodeLine{254                     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{255                 \}}
+\DoxyCodeLine{256                 \textcolor{keywordflow}{if} ((i == size -\/ 1) \&\& (data[i] == other.data[i])) \{}
+\DoxyCodeLine{257                     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{258                 \}}
+\DoxyCodeLine{259             \}}
+\DoxyCodeLine{260         \}}
+\DoxyCodeLine{261         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{262     \}}
+\DoxyCodeLine{263 }
+\DoxyCodeLine{264 }
+\DoxyCodeLine{266     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_m_a_vector_a0b39aff6f2f6641b867b57384c9e055e}{Size}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{267         \textcolor{keywordflow}{return} size;}
+\DoxyCodeLine{268     \}}
+\DoxyCodeLine{269 }
+\DoxyCodeLine{271     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_m_a_vector_a1cce856112c294153eac138829cd7e13}{Capacity}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{272         \textcolor{keywordflow}{return} capacity;}
+\DoxyCodeLine{273     \}}
+\DoxyCodeLine{274 }
+\DoxyCodeLine{276     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_m_a_vector_aae8ed2ce66b0f82a18f83f83963423ab}{resize}}() \{}
+\DoxyCodeLine{277         T* temp = \textcolor{keyword}{new} T[capacity * 2];}
+\DoxyCodeLine{278         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < size; i++)\{}
+\DoxyCodeLine{279             temp[i] = data[i];}
+\DoxyCodeLine{280         \}}
+\DoxyCodeLine{281         \textcolor{keyword}{delete} [] data;}
+\DoxyCodeLine{282         data = temp;}
+\DoxyCodeLine{283         temp = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{284     \}}
+\DoxyCodeLine{285 }
+\DoxyCodeLine{287     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_m_a_vector_acf998fa1e2be7b514cec186a6d22ce05}{empty}}() \{}
+\DoxyCodeLine{288         \textcolor{keywordflow}{if} (size == 0) \{}
+\DoxyCodeLine{289             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{290         \}}
+\DoxyCodeLine{291         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{292             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{293         \}}
+\DoxyCodeLine{294     \}}
+\DoxyCodeLine{296     \textcolor{keyword}{friend} ostream\& \mbox{\hyperlink{class_m_a_vector_ab00a435cb7695031816a52641c6c61bf}{operator << }}(ostream\& out, \mbox{\hyperlink{class_m_a_vector}{MAVector<T>}} \&v) \{}
+\DoxyCodeLine{297         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < v.\mbox{\hyperlink{class_m_a_vector_a0b39aff6f2f6641b867b57384c9e055e}{Size}}(); i++)\{}
+\DoxyCodeLine{298             out << v[i] << \textcolor{charliteral}{' '};}
+\DoxyCodeLine{299         \}}
+\DoxyCodeLine{300         out << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{301         \textcolor{keywordflow}{return} out;}
+\DoxyCodeLine{302     \}}
+\DoxyCodeLine{303     }
+\DoxyCodeLine{304 \};}
+\DoxyCodeLine{305 }
+\DoxyCodeLine{306 }
+\DoxyCodeLine{307 }
+\DoxyCodeLine{308 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

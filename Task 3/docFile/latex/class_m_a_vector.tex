@@ -14,70 +14,73 @@ using {\bfseries const\+\_\+iterator} = T const  $\ast$
 \item 
 \mbox{\Hypertarget{class_m_a_vector_ad12343cb277edb5662078a883342f923}\label{class_m_a_vector_ad12343cb277edb5662078a883342f923}} 
 {\bfseries MAVector} (int cap=2)
-\item 
+\begin{DoxyCompactList}\small\item\em Initialize by specific capacity No content is added, size = 0 Assign a default size value. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_m_a_vector_aa4915958192ebfb2fc5e4a785618b355}\label{class_m_a_vector_aa4915958192ebfb2fc5e4a785618b355}} 
 {\bfseries MAVector} (T $\ast$arr, int n)
-\item 
+\begin{DoxyCompactList}\small\item\em Initialize by n items from array. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_m_a_vector_a5b8608f663475f9067f2a7aa90313cd9}\label{class_m_a_vector_a5b8608f663475f9067f2a7aa90313cd9}} 
 {\bfseries MAVector} (const \mbox{\hyperlink{class_m_a_vector}{MAVector}} \&other)
-\item 
+\begin{DoxyCompactList}\small\item\em Initialize with a copy. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_m_a_vector_a124a8525783390a012a458a1b739bd0f}\label{class_m_a_vector_a124a8525783390a012a458a1b739bd0f}} 
 \mbox{\hyperlink{class_m_a_vector}{MAVector}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_m_a_vector}{MAVector}} \&other)
-\item 
+\begin{DoxyCompactList}\small\item\em Copy assignment. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_m_a_vector_a182538c8aa9e7d35c31a50006eb33460}\label{class_m_a_vector_a182538c8aa9e7d35c31a50006eb33460}} 
 \mbox{\hyperlink{class_m_a_vector}{MAVector}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_m_a_vector}{MAVector}} \&\&other)
-\item 
+\begin{DoxyCompactList}\small\item\em Move assignment. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_m_a_vector_a2e1a19ee33ae43e63aa86b46cccf68f9}\label{class_m_a_vector_a2e1a19ee33ae43e63aa86b46cccf68f9}} 
+{\bfseries $\sim$\+MAVector} ()
+\begin{DoxyCompactList}\small\item\em Delete allocated memory. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_m_a_vector_a15293989cf206cf80c91cab77b670394}\label{class_m_a_vector_a15293989cf206cf80c91cab77b670394}} 
 T \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (int index)
-\item 
+\begin{DoxyCompactList}\small\item\em Access item by reference, Throw an exception if out of range. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_m_a_vector_a721fcda95fafaf168eaf4971b0758a5f}\label{class_m_a_vector_a721fcda95fafaf168eaf4971b0758a5f}} 
 void {\bfseries erase} (iterator it)
-\item 
+\begin{DoxyCompactList}\small\item\em Remove item at iterator, Throw exception if invalid iter. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_m_a_vector_a84d4c254cb3c11905822445f7fb8cd02}\label{class_m_a_vector_a84d4c254cb3c11905822445f7fb8cd02}} 
 void {\bfseries erase} (iterator it1, iterator it2)
-\item 
+\begin{DoxyCompactList}\small\item\em Remove items between iterator 1 \texorpdfstring{$<$}{<}= iterator 2 otherwise do nothing, Throw exception if any iterator outside range. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_m_a_vector_a709b9b62141ecd8020f03cdf4ab02b59}\label{class_m_a_vector_a709b9b62141ecd8020f03cdf4ab02b59}} 
 void {\bfseries insert} (iterator it, T value)
-\item 
+\begin{DoxyCompactList}\small\item\em Insert item at iterator, Throw exception if invalid. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_m_a_vector_a0a344cd4bf3f80a648b32832f64dd576}\label{class_m_a_vector_a0a344cd4bf3f80a648b32832f64dd576}} 
 iterator {\bfseries begin} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Return an iterator to the beginning of the array. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_m_a_vector_a88a7e16a657cfbe571c2f21b53254d0e}\label{class_m_a_vector_a88a7e16a657cfbe571c2f21b53254d0e}} 
 iterator {\bfseries end} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Return an iterator to the end of the array. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_m_a_vector_a78c2b2c3bbb9666fdeec377f3a3d96d6}\label{class_m_a_vector_a78c2b2c3bbb9666fdeec377f3a3d96d6}} 
 int {\bfseries push\+\_\+back} (T temp)
-\item 
+\begin{DoxyCompactList}\small\item\em Access item by reference, Throw an exception if out of range. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_m_a_vector_af5499889ca5961bb2c720c4845fbf021}\label{class_m_a_vector_af5499889ca5961bb2c720c4845fbf021}} 
 T {\bfseries pop\+\_\+back} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Remove and return last element in vec. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_m_a_vector_a4f9f679233fd4d47cefc42c73b6bdfbe}\label{class_m_a_vector_a4f9f679233fd4d47cefc42c73b6bdfbe}} 
 void {\bfseries clear} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Delete all vector content. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_m_a_vector_a6831936c2a3ef1a66750b54850e8852c}\label{class_m_a_vector_a6831936c2a3ef1a66750b54850e8852c}} 
 bool {\bfseries operator==} (const \mbox{\hyperlink{class_m_a_vector}{MAVector}}$<$ T $>$ \&other)
-\item 
+\begin{DoxyCompactList}\small\item\em Return true if two vectors are equal. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_m_a_vector_a63b25c9e40bf36b486f1d956f7451fea}\label{class_m_a_vector_a63b25c9e40bf36b486f1d956f7451fea}} 
 bool {\bfseries operator$<$} (const \mbox{\hyperlink{class_m_a_vector}{MAVector}}$<$ T $>$ \&other)
-\item 
+\begin{DoxyCompactList}\small\item\em Compares item by item, Return true if first different item in this is \texorpdfstring{$<$}{<} in other. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_m_a_vector_a0b39aff6f2f6641b867b57384c9e055e}\label{class_m_a_vector_a0b39aff6f2f6641b867b57384c9e055e}} 
 int {\bfseries Size} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Return current size of vec. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_m_a_vector_a1cce856112c294153eac138829cd7e13}\label{class_m_a_vector_a1cce856112c294153eac138829cd7e13}} 
 int {\bfseries Capacity} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Return size of current allocated array. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_m_a_vector_aae8ed2ce66b0f82a18f83f83963423ab}\label{class_m_a_vector_aae8ed2ce66b0f82a18f83f83963423ab}} 
 void {\bfseries resize} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Relocate to bigger space. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_m_a_vector_acf998fa1e2be7b514cec186a6d22ce05}\label{class_m_a_vector_acf998fa1e2be7b514cec186a6d22ce05}} 
 bool {\bfseries empty} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Return true if size is 0. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{class_m_a_vector_ab00a435cb7695031816a52641c6c61bf}\label{class_m_a_vector_ab00a435cb7695031816a52641c6c61bf}} 
 ostream \& {\bfseries operator$<$$<$} (ostream \&out, \mbox{\hyperlink{class_m_a_vector}{MAVector}}$<$ T $>$ \&v)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Print the content of the array. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
