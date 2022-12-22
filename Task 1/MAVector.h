@@ -10,47 +10,12 @@ template <class T>
 class MAVector
 {
 private:
-	int size, capacity;
+    int size, capacity;
 	T* data;
 
 public:
-//    template <typename T>
-    class iterator
-    {
-    public:
-        using valueType = typename T::valueType;
-        using pointer = T*;
-        using reference = T&;
-
-        iterator(pointer ptr) : p(ptr) {}
-        reference operator*() const {
-            return *p;
-        }
-        pointer operator->() {
-            return p;
-        }
-        iterator& operator++() {
-            p++;
-            return *this;
-        }
-        iterator operator++(int) {
-            iterator tmp = *this;
-            ++(*this);
-            return tmp;
-        }
-        friend bool operator== (const iterator& a, const iterator& b) {
-            return a.p == b.p;
-        };
-        friend bool operator!= (const iterator& a, const iterator& b) {
-            return a.p != b.p;
-        };
-
-    private:
-        pointer p;
-    };
-
-	// constuctors and Big 4
-
+    using iterator = T*;
+    using const_iterator = T const*;
 	MAVector(int cap = 2) {
 		this->capacity = cap;
 		this->size = 0;
@@ -62,7 +27,6 @@ public:
 		this->data = new T[capacity];
 
 		while (capacity < n) {
-			cout << "Resizing to ..." << capacity * 2 << endl;
 			this->data = new T[capacity * 2];
 			capacity *= 2;
 		}
@@ -74,10 +38,9 @@ public:
 
 
 	MAVector(const MAVector& other) {
-		delete[] data;
 		this->size = other.size;
 		this->capacity = other.capacity;
-		data = new T [other.size];
+		data = new T[other.size];
 		for (int i = 0; i < other.size; i++) {
 			data[i] = other.data[i];
 		}
@@ -129,9 +92,8 @@ public:
 			return data[index];
 		}
 		else {
-			// we need here throw an exception if out of range 
-			cout << "index out of range" << endl;
-			exit(-1);
+			// we need here throw an exception if out of range
+            throw out_of_range("index out of range");
 		}
 	}
 
@@ -171,7 +133,7 @@ public:
         ptr = data;
         int newSize = 0;
         for(; ptr < data + size; ptr++){
-            if(iterator(ptr) >= it1 || iterator(ptr) <= it2) continue;
+            if(ptr >= it1 && iterator(ptr) <= it2) continue;
             temp[newSize++] = *ptr;
         }
         size = newSize;
@@ -194,8 +156,10 @@ public:
         ptr = data;
         int newSize = 0;
         for(; ptr < data + size; ptr++){
+            if(iterator(ptr) == it) {
+                temp[newSize++] = value;
+            }
             temp[newSize++] = *ptr;
-            if(iterator(ptr) == it) ptr--;
         }
         size = newSize;
         delete [] data;
@@ -204,8 +168,8 @@ public:
         temp = nullptr;
     }
 
-    iterator begin() { return iterator(data);}
-    iterator end() { return iterator(data + size);}
+    iterator begin() { return iterator(&data[0]);}
+    iterator end() { return iterator(&data[size]);}
 
 	int push_back(T temp) {
 		if (size < capacity) {
@@ -237,15 +201,14 @@ public:
 	void clear() {
 		this->size = 0;
 		delete[] data;
-		data = new T[capacity];               // i am not sure about this line ..... if you can get better , write it here
+		data = new T[capacity];
 	}
-
 
 
 	// Comparison operations
 
 	bool operator==(const MAVector<T>& other) {
-		if (size == other.size) {                  // i am not sure if i should check the capacity or not
+		if (size == other.size) {
 			int sum = 0;
 			for (int i = 0; i < size; i++) {
 				if (data[i] == other.data[i]) {
@@ -272,15 +235,12 @@ public:
 			for (int i = 0; i < other.size; i++) {
 				if (data[i] < other.data[i]) {
 					return true;
-					break;
 				}
 				else if (data[i] > other.data[i]) {
 					return false;
-					break;
 				}
 				if ((i == size - 1) && (data[i] == other.data[i])) {
 					return false;
-					break;
 				}
 			}
 		}
@@ -288,21 +248,17 @@ public:
 			for (int i = 0; i < size; i++) {
 				if (data[i] < other.data[i]) {
 					return true;
-					break;
 				}
 				else if (data[i] > other.data[i]) {
 					return false;
-					break;
 				}
 				if ((i == size - 1) && (data[i] == other.data[i])) {
 					return true;
-					break;
 				}
 			}
 		}
 		return false;
 	}
-
 
 
 	// Capacity operations
@@ -315,7 +271,7 @@ public:
 		return capacity;
 	}
 
-	int resize() {
+	void resize() {
         T* temp = new T[capacity * 2];
         for(int i = 0; i < size; i++){
             temp[i] = data[i];
@@ -330,12 +286,11 @@ public:
 			return true;
 		}
 		else {
-			cout << "it is not empty" << endl;
 			return false;
 		}
 	}
 
-    friend ostream& operator << (ostream& out, MAVector<T> v) {
+    friend ostream& operator << (ostream& out, MAVector<T> &v) {
         for(int i = 0; i < v.Size(); i++){
             out << v[i] << ' ';
         }
